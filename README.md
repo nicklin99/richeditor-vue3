@@ -17,3 +17,5 @@ uiuploader | Object | `ConcreteComponent` 组件属性 `{ onSuccess(src: string,
 ## examples
 
 `examples/richeditor` 基础功能
+
+![示例图片](doc/example.png)
