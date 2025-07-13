@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    --raidus: 6px;
+    --form-height: 32px;
+
+    &-item {}
+
+    input {
+        align-items: center;
+        border: 1px solid #eee;
+        border-radius: var(--raidus);
+        box-sizing: border-box;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        overflow: hidden;
+        height: var(--form-height);
+        padding: 0 var(--raidus);
+        position: relative;
+        width: 100%;
+    }
+    textarea {
+        align-items: center;
+        border: 1px solid #eee;
+        border-radius: var(--raidus);
+        box-sizing: border-box;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        overflow: hidden;
+        padding: var(--raidus);
+        position: relative;
+        width: 100%;
+    }
+}

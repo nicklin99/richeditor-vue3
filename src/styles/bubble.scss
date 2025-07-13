@@ -1,0 +1,26 @@
+
+.bubble-menu {
+    --white: #fff;
+    --shadow: 0px 12px 33px 0px rgba(0, 0, 0, 0.06),
+    0px 3.618px 9.949px 0px rgba(0, 0, 0, 0.04);
+    --gray-1: rgba(61, 37, 20, 0.05);
+    background-color: var(--white);
+    border: 1px solid var(--gray-1);
+    border-radius: .7rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    .toolbar {
+        justify-content: space-between;
+        align-items: center;
+        button {
+            margin-left: 5px;
+        }
+    }
+    h3 {
+        margin: 5px 0;
+        padding: 5px 0;
+    }
+}

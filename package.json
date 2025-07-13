@@ -1,0 +1,54 @@
+{
+  "name": "richeditor-vue3",
+  "version": "1.0.0",
+  "description": "vue3 tiptap richeditor",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "vue-tsc -b && vite build",
+    "release": "pnpm run build && changelogen --release && npm publish --registry https://registry.npmjs.org",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": {
+      "import": "./dist/style.css"
+    }
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.25.0",
+    "@tiptap/extension-highlight": "^2.25.0",
+    "@tiptap/extension-image": "^2.25.0",
+    "@tiptap/extension-link": "^2.25.0",
+    "@tiptap/extension-table": "^2.25.0",
+    "@tiptap/extension-table-cell": "^2.25.0",
+    "@tiptap/extension-table-header": "^2.25.0",
+    "@tiptap/extension-table-row": "^2.25.0",
+    "@tiptap/extension-text-align": "^2.25.0",
+    "@tiptap/pm": "^2.25.0",
+    "@tiptap/starter-kit": "^2.25.0",
+    "@tiptap/vue-3": "^2.25.0",
+    "tdesign-icons-vue-next": "^0.3.6",
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "sass-embedded": "^1.89.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4",
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^3.0.1"
+  },
+  "keywords": [],
+  "author": "nicklin99 <719675210@qq.com>",
+  "license": "MIT",
+  "packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9"
+}
