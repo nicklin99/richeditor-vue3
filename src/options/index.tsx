@@ -33,7 +33,7 @@ export default defineComponent({
     const imageRef = useTemplateRef<InstanceType<typeof RicheditorOptionsImage>>('image');
     const videoRef = useTemplateRef<InstanceType<typeof RicheditorOptionsVideo>>('video');
     const linkRef = useTemplateRef<InstanceType<typeof RicheditorOptionsLink>>('link');
-    const { editor, button, messager } = useEditorCtx()
+    const { editor, messager } = useEditorCtx()
     return () => {
       const { type } = props;
       switch (type) {

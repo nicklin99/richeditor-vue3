@@ -27,13 +27,13 @@ const linkOptions = reactive({
   ...props,
 });
 const formRef = useTemplateRef('form');
-const rules = {
-  href: [
-    {
-      required: true,
-    },
-  ],
-};
+// const rules = {
+//   href: [
+//     {
+//       required: true,
+//     },
+//   ],
+// };
 watch(props, (val) => {
   linkOptions.href = val.href;
   linkOptions.text = val.text;
