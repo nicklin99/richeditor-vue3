@@ -11,8 +11,8 @@ import {
 import { NodeTypes } from "../extension";
 import { defineComponent, useTemplateRef, type PropType } from "vue";
 import { useEditorCtx } from "../hooks/useEditorCtx";
-import RicheditorOptionsImage from './Image.tsx'
-import RicheditorOptionsVideo from './Video.tsx'
+import RicheditorOptionsImage, { type ImageOptionsPublic } from './Image.tsx'
+import RicheditorOptionsVideo, { type VideoOptionsPublic } from './Video.tsx'
 import LinkOptions, { type LinkOptionsPublic } from './Link.tsx'
 import "../styles/bubble.scss"
 import "../styles/form.scss"
@@ -30,8 +30,8 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const imageRef = useTemplateRef<InstanceType<typeof RicheditorOptionsImage>>('image');
-    const videoRef = useTemplateRef<InstanceType<typeof RicheditorOptionsVideo>>('video');
+    const imageRef = useTemplateRef<InstanceType<typeof RicheditorOptionsImage> & ImageOptionsPublic>('image');
+    const videoRef = useTemplateRef<InstanceType<typeof RicheditorOptionsVideo> & VideoOptionsPublic>('video');
     const linkRef = useTemplateRef<InstanceType<typeof LinkOptions> & LinkOptionsPublic>('link');
     const { editor, messager } = useEditorCtx()
     return () => {

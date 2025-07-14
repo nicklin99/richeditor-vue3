@@ -3,17 +3,12 @@ import { selectionCheck } from "../options/command";
 import { useEditorCtx } from '../hooks/useEditorCtx'
 import { NodeTypes, type ProvideEditorCtx, supportCommand } from "../const";
 import { menus } from "../config";
-import { defineComponent, type PropType, type SetupContext } from "vue";
+import { defineComponent, type PropType } from "vue";
 import { VideoIcon, RollfrontIcon, ListIcon, ListNumberedIcon, RollbackIcon, LettersPIcon, ImageIcon, FormatVerticalAlignRightIcon, FormatVerticalAlignLeftIcon, LinkIcon, ClearFormattingIcon, TextformatBoldIcon, TextformatItalicIcon, TextformatStrikethroughIcon, FormatVerticalAlignCenterIcon } from 'tdesign-icons-vue-next'
-
-type Events = {
-  command(command: string, options?: string): void; // 命令
-};
 
 const renderMenuIcon = (
   name: string,
-  { editor, messager, uploader, onSelect }: ProvideEditorCtx,
-  ctx: SetupContext<Events>
+  { editor, messager, uploader, onSelect, handleCommand }: ProvideEditorCtx,
 ) => {
   switch (name) {
     case "clearAll":
@@ -121,7 +116,7 @@ const renderMenuIcon = (
     case "image_picker":
       return (
         <button
-          onClick={() => ctx.emit("command", supportCommand.selectMedia)}
+          onClick={() =>handleCommand(supportCommand.selectMedia)}
         >
           <ImageIcon /> 选择图片
         </button>
@@ -129,7 +124,7 @@ const renderMenuIcon = (
     case "video_picker":
       return (
         <button
-          onClick={() => ctx.emit("command", supportCommand.selectMedia)}
+          onClick={() => handleCommand(supportCommand.selectMedia)}
         >
           <VideoIcon /> 选择视频
         </button>
@@ -199,19 +194,12 @@ const RicheditorToolbar = defineComponent({
       default: () => menus,
     }
   },
-  emits: {
-    // @ts-ignore
-    command(name: string, url?: string) {
-      // 执行运行时校验
-      return true
-    }
-  },
-  setup(props, ctx) {
+  setup(props) {
     const c = useEditorCtx()
     return () => {
       return (
         <div class="toolbar">
-          {props.menus.map((menu) => renderMenuIcon(menu, c, ctx))}
+          {props.menus.map((menu) => renderMenuIcon(menu, c))}
         </div>
       )
     }

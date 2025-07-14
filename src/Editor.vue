@@ -1,10 +1,12 @@
 <template>
   <div class="editor">
     <slot>
-      <!-- 菜单命令按钮 -->
-      <RicheditorToolbar v-if="editor" @command="handleCommand" />
       <!-- 冒泡菜单上下文编辑 -->
       <RicheditorOptionsBubble v-if="editor" />
+    </slot>
+    <slot name="toolbar">
+      <!-- 菜单命令按钮 -->
+      <RicheditorToolbar v-if="editor" />
     </slot>
     <!-- 富文本编辑器 -->
     <EditorContent :editor="editor!"></EditorContent>
@@ -120,7 +122,17 @@ export default defineComponent({
       formitem: this.uiformitem || FormItem,
       textarea: this.uitextarea || 'textarea',
       input: this.uiinput || 'input',
-      onSelect: this.onSelect
+      onSelect: this.onSelect,
+      handleCommand: (command: string) => {
+        switch (command) {
+          case supportCommand.selectMedia:
+            this.selector.onSelect(this.onSelect)
+            break;
+          default:
+            this.messager.warning("未知的命令");
+            break;
+        }
+      }
     }
     provide(provide_key_editor, ctx)
   },
@@ -150,17 +162,6 @@ export default defineComponent({
           break
         default:
           throw new Error("sorry, unsupport media type")
-      }
-    },
-    // 处理自定义的命令事件
-    handleCommand(command: string) {
-      switch (command) {
-        case supportCommand.selectMedia:
-          this.selector.onSelect(this.onSelect)
-          break;
-        default:
-          this.messager.warning("未知的命令");
-          break;
       }
     },
   },

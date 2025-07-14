@@ -1,6 +1,6 @@
 {
   "name": "richeditor-vue3",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "vue3 tiptap richeditor",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

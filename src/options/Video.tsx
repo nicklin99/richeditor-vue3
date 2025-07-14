@@ -1,6 +1,13 @@
 import { defineComponent, reactive, watch, type PropType } from 'vue';
 import { useEditorCtx } from '../hooks/useEditorCtx';
 
+export type VideoOptionsPublic = {
+  videoOptions: {
+    width: string
+    height: string
+    src: string
+  }
+}
 export default defineComponent({
   name: 'VideoOptions',
   props: {

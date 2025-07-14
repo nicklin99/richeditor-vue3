@@ -1,6 +1,51 @@
 # Changelog
 
 
+## v1.2.0
+
+feat(editor): 重构编辑器组件并添加工具栏组件支持
+
+- 将工具栏组件从Editor.vue中分离为独立组件
+- 添加handleCommand到ProvideEditorCtx以统一处理命令
+- 更新Image和Video组件的类型定义
+- 版本号升级至1.1.0
+
+### 🚀 Enhancements
+
+- **editor:** 重构编辑器组件并添加表单组件支持 (a2c68ec)
+
+### 📖 Documentation
+
+- 更新README和package.json文档 (df84da6)
+
+### 🏡 Chore
+
+- 添加 prepare 脚本并简化 release 脚本 (cfe0167)
+
+### ❤️ Contributors
+
+- Nicklin99 ([@nicklin99](https://github.com/nicklin99))
+
+## v1.1.0
+
+[compare changes](https://undefined/undefined/compare/v1.0.1...v1.1.0)
+
+### 🚀 Enhancements
+
+- **editor:** 重构编辑器组件并添加表单组件支持 (a2c68ec)
+
+### 📖 Documentation
+
+- 更新README和package.json文档 (df84da6)
+
+### 🏡 Chore
+
+- 添加 prepare 脚本并简化 release 脚本 (cfe0167)
+
+### ❤️ Contributors
+
+- Nicklin99 ([@nicklin99](https://github.com/nicklin99))
+
 ## v1.0.2
 
 feat(editor): 重构编辑器组件并添加表单组件支持

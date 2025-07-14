@@ -2,6 +2,14 @@ import { defineComponent, type PropType } from "vue";
 import { reactive, watch } from 'vue';
 import { useEditorCtx } from "../hooks/useEditorCtx";
 
+export type ImageOptionsPublic = {
+  imageOptions: {
+    width: string
+    height: string
+    src: string
+    alt: string
+  }
+}
 export default defineComponent({
     name: 'ImageOptions',
     props: {

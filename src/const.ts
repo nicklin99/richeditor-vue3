@@ -18,6 +18,7 @@ export type ProvideEditorCtx = {
   formitem: typeof FormItem
   input: Component
   textarea: Component
+  handleCommand: (command: string) => void
   onSelect: (src: string, type: string) => void
 }
 // 节点类型
