@@ -1,15 +1,12 @@
 <template>
   <div class="editor">
     <slot>
-      <!-- 冒泡菜单上下文编辑 -->
+      <slot name="toolbar" :editor="editor">
+        <RicheditorToolbar v-if="editor" />
+      </slot>
       <RicheditorOptionsBubble v-if="editor" />
     </slot>
-    <slot name="toolbar">
-      <!-- 菜单命令按钮 -->
-      <RicheditorToolbar v-if="editor" />
-    </slot>
-    <!-- 富文本编辑器 -->
-    <EditorContent :editor="editor!"></EditorContent>
+    <EditorContent :editor="editor!" />
   </div>
 </template>
 

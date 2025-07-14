@@ -187,7 +187,7 @@ const renderMenuIcon = (
   }
 };
 // 函数之间
-const RicheditorToolbar = defineComponent({
+export const RicheditorToolbar = defineComponent({
   props: {
     menus: {
       type: Array as PropType<string[]>,
