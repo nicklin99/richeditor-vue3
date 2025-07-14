@@ -8,7 +8,7 @@
   "repository": "github.com/nicklin99/richeditor-vue3",
   "scripts": {
     "build": "vue-tsc -b && vite build",
-    "prepare": "changelogen --bump",
+    "prepare": "pnpm run build && changelogen --release",
     "release": "npm publish --registry https://registry.npmjs.org",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
