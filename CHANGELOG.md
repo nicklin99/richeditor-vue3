@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v1.4.0
+
+fix toolbar组件自定义的上下文丢失的问题
+
+### 🚀 Enhancements
+
+- **editor:** 重构编辑器组件并添加表单组件支持 (a2c68ec)
+- **editor:** 重构编辑器组件并添加工具栏组件支持 (ad3fd97)
+- 升级版本至1.3.0并重构工具栏导出方式 (9372e12)
+
+### 📖 Documentation
+
+- 更新README和package.json文档 (df84da6)
+
+### 🏡 Chore
+
+- 添加 prepare 脚本并简化 release 脚本 (cfe0167)
+
+### ❤️ Contributors
+
+- Nicklin99 ([@nicklin99](https://github.com/nicklin99))
+
 ## v1.3.0
 
 [compare changes](https://undefined/undefined/compare/v1.0.1...v1.3.0)
