@@ -23,12 +23,11 @@ import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Link from "@tiptap/extension-link";
 import { Editor, EditorContent } from "@tiptap/vue-3";
-import { type ConcreteComponent, provide, type PropType, defineComponent, type ShallowRef } from "vue";
+import { provide, type PropType, defineComponent, type ShallowRef, type Component } from "vue";
 import { InlineImage, ResizeImage, Video } from "./extension";
-import { MediaType, NodeTypes, provide_key_editor, supportCommand } from "./const";
-type OnSelectCallback = {
-  (src: string, type: string): void
-}
+import { MediaType, NodeTypes, provide_key_editor, supportCommand, type OnSelectCallback } from "./const";
+import { Form, FormItem } from './options/FormItem';
+
 export default defineComponent({
   name: 'TiptapRichEditor',
   components: {
@@ -55,11 +54,27 @@ export default defineComponent({
       default: null,
     },
     uibutton: {
-      type: Object as PropType<ConcreteComponent>,
+      type: Object as PropType<Component>,
       default: null,
     },
     uiuploader: {
-      type: Object as PropType<ConcreteComponent>,
+      type: Object as PropType<Component>,
+      default: null,
+    },
+    uiform: {
+      type: Object as PropType<Component>,
+      default: null,
+    },
+    uiformitem: {
+      type: Object as PropType<Component>,
+      default: null,
+    },
+    uiinput: {
+      type: Object as PropType<Component>,
+      default: null,
+    },
+    uitextarea: {
+      type: Object as PropType<Component>,
       default: null,
     }
   },
@@ -101,6 +116,10 @@ export default defineComponent({
       messager: this.messager,
       button: this.uibutton,
       uploader: this.uiuploader,
+      form: this.uiform || Form,
+      formitem: this.uiformitem || FormItem,
+      textarea: this.uitextarea || 'textarea',
+      input: this.uiinput || 'input',
       onSelect: this.onSelect
     }
     provide(provide_key_editor, ctx)

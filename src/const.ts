@@ -1,6 +1,9 @@
 import { type Editor } from "@tiptap/vue-3";
-import { type ConcreteComponent } from "vue";
-
+import { type Component } from "vue";
+import type { Form, FormItem } from "./options/FormItem";
+export type OnSelectCallback = {
+  (src: string, type: string): void
+}
 // provide keys
 export const provide_key_editor = 'tiptap_rich_editor'
 export type ProvideEditorCtx = {
@@ -9,8 +12,12 @@ export type ProvideEditorCtx = {
     warning: (msg: string) => void;
     error: (msg: string) => void;
   }
-  button: ConcreteComponent
-  uploader: ConcreteComponent
+  button: Component
+  uploader: Component
+  form: typeof Form
+  formitem: typeof FormItem
+  input: Component
+  textarea: Component
   onSelect: (src: string, type: string) => void
 }
 // 节点类型

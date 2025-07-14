@@ -11,9 +11,9 @@ import {
 import { NodeTypes } from "../extension";
 import { defineComponent, useTemplateRef, type PropType } from "vue";
 import { useEditorCtx } from "../hooks/useEditorCtx";
-import RicheditorOptionsImage from './Image.vue'
-import RicheditorOptionsVideo from './Video.vue'
-import RicheditorOptionsLink from './Link.vue'
+import RicheditorOptionsImage from './Image.tsx'
+import RicheditorOptionsVideo from './Video.tsx'
+import LinkOptions, { type LinkOptionsPublic } from './Link.tsx'
 import "../styles/bubble.scss"
 import "../styles/form.scss"
 // 元素编辑区域
@@ -32,7 +32,7 @@ export default defineComponent({
   setup(props) {
     const imageRef = useTemplateRef<InstanceType<typeof RicheditorOptionsImage>>('image');
     const videoRef = useTemplateRef<InstanceType<typeof RicheditorOptionsVideo>>('video');
-    const linkRef = useTemplateRef<InstanceType<typeof RicheditorOptionsLink>>('link');
+    const linkRef = useTemplateRef<InstanceType<typeof LinkOptions> & LinkOptionsPublic>('link');
     const { editor, messager } = useEditorCtx()
     return () => {
       const { type } = props;
@@ -102,7 +102,7 @@ export default defineComponent({
                   </button>
                 </div>
               </div>
-              <RicheditorOptionsLink ref="link" text={text} {...props.attrs} />
+              <LinkOptions ref="link" text={text} {...props.attrs} />
             </div>
           );
         }
@@ -132,7 +132,6 @@ export default defineComponent({
                   </button>
                 </div>
               </div>
-
               <RicheditorOptionsVideo ref="video" {...props.attrs} />
             </div>
           );

@@ -1,4 +1,5 @@
 <template>
+  <!-- 弃用 -->
   <Form
     ref="form"
     :data="imageOptions"
